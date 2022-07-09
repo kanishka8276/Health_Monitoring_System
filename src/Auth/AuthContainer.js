@@ -6,9 +6,9 @@ import RegisterPatient from './RegisterPatient';
 
 
 function AuthContainer() {
-    return ( <>
+    return (
     <div className="container-fluid">
-    auth
+    <div className="mt-5">
     <div className="row">
         <div className="col">
     <Link to="">Patient</Link>
@@ -26,7 +26,7 @@ function AuthContainer() {
             <Route path="famMem" element={<RegisterFamMem/>} />
         </Routes>
         </div>
-          </>);
+          </div>);
 }
 
 export default AuthContainer;
