@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 
 function RegisterPatient() {
     const [email, setEmail] = useState('');
-    const [pwd, setPwd] = useState('');
-    const [cpwd, setCpwd] = useState('');
     const [age, setAge] = useState('');
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
@@ -12,6 +10,30 @@ function RegisterPatient() {
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
     const [blood, setBlood] = useState('');
+
+    const [password, setPassword] = useState('');
+    const [cPassword, setCPassword] = useState('');
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [cPasswordClass, setCPasswordClass] = useState('form-control');
+    const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
+
+    useEffect(() => {
+        if (isCPasswordDirty) {
+            if (password === cPassword) {
+                setShowErrorMessage(false);
+                setCPasswordClass('form-control is-valid')
+            } else {
+                setShowErrorMessage(true)
+                setCPasswordClass('form-control is-invalid')
+            }
+        }
+    }, [cPassword])
+
+    const handleCPassword = (e) => {
+        setCPassword(e.target.value);
+        setIsCPasswordDirty(true);
+    }
+
     return ( 
         <div>
         <h2 style={{ color: '#535461' }}>Create a new Account</h2>
@@ -63,7 +85,7 @@ function RegisterPatient() {
                     </div>
                 </div>
                 <div className="height">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Height </label><br />
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Height (in cm) </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
                         type="number" 
@@ -78,7 +100,7 @@ function RegisterPatient() {
                     </div>
                 </div> 
                 <div className="weight">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Weight </label><br />
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Weight (in kgs) </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
                         type="number" 
@@ -143,43 +165,19 @@ function RegisterPatient() {
                             }} />
                     </div>
                 </div> 
-                <div className="password">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">
-                        Enter Password
-                    </label>
-                    <br />
-                    <input
-                        type="password"
-                        id="validationCustomUsername"
-                        className="form-control"
-                        placeholder="Password"
-                        aria-describedby="inputGroupPrepend"
-                        required
-                        name="Pwd"
-                        value={pwd}
-                        onChange={(e) => {
-                            setPwd(e.target.value);
-                        }} />
+                
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input type="password" className="form-control" id="password" required value={password}
+                        onChange={(e) => { setPassword(e.target.value) }} />
                 </div>
+                <div className="mb-3">
+                    <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                    <input type="password" className={cPasswordClass} id="confirmPassword" required value={cPassword}
+                        onChange={handleCPassword} />
+                </div>
+                {showErrorMessage && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
 
-                <div className="password">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">
-                        Confirm Password
-                    </label>
-                    <br />
-                    <input
-                        type="password"
-                        id="validationCustomUsername"
-                        className="form-control"
-                        placeholder="Password"
-                        aria-describedby="inputGroupPrepend"
-                        required
-                        name="Pwd"
-                        value={cpwd}
-                        onChange={(e) => {
-                            setCpwd(e.target.value);
-                        }} />
-                </div>
                         
                 <button className="btn purple-btn" type="submit">Sign Up</button>
             </form>
