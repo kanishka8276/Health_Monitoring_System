@@ -67,7 +67,7 @@ function RegisterFamMem() {
                         }} />
                 </div>
                         
-                <button className="btn" type="submit">Sign Up</button>
+                <button className="btn purple-btn" type="submit">Sign Up</button>
             </form>
             <div className="text-center">
             <p style={{ color: '#949494', marginTop: '16px', marginBottom: '2px' }}>

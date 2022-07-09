@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
 
-
-
 function RegisterDoctor() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
@@ -47,10 +45,10 @@ function RegisterDoctor() {
                     </div>
                 </div> 
                 <div className="experience">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Years of Experience </label><br />
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Years of Experience (in years) </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         name=""  
                         className="form-control" 
                         placeholder="Years of Experience" 
@@ -101,7 +99,7 @@ function RegisterDoctor() {
                         }} />
                 </div>
                         
-                <button className="btn" type="submit">Sign Up</button>
+                <button className="btn purple-btn" type="submit">Sign Up</button>
             </form>
             <div className="text-center">
             <p style={{ color: '#949494', marginTop: '16px', marginBottom: '2px' }}>

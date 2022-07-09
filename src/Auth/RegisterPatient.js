@@ -4,6 +4,7 @@ import { Link} from 'react-router-dom';
 function RegisterPatient() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    const [cpwd, setCpwd] = useState('');
     const [age, setAge] = useState('');
     const [name, setName] = useState('');
     const [gender, setGender] = useState('');
@@ -35,7 +36,7 @@ function RegisterPatient() {
                     <label htmlFor="exampleFormControlInput1" className="form-label">Age </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         name=""  
                         className="form-control" 
                         placeholder="Age" 
@@ -65,7 +66,7 @@ function RegisterPatient() {
                     <label htmlFor="exampleFormControlInput1" className="form-label">Height </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         name=""  
                         className="form-control" 
                         placeholder="Height" 
@@ -80,7 +81,7 @@ function RegisterPatient() {
                     <label htmlFor="exampleFormControlInput1" className="form-label">Weight </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         name=""  
                         className="form-control" 
                         placeholder="Weight" 
@@ -110,7 +111,7 @@ function RegisterPatient() {
                     <label htmlFor="exampleFormControlInput1" className="form-label">Address </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="text"
                         name=""  
                         className="form-control" 
                         placeholder="Address" 
@@ -160,8 +161,27 @@ function RegisterPatient() {
                             setPwd(e.target.value);
                         }} />
                 </div>
+
+                <div className="password">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">
+                        Confirm Password
+                    </label>
+                    <br />
+                    <input
+                        type="password"
+                        id="validationCustomUsername"
+                        className="form-control"
+                        placeholder="Password"
+                        aria-describedby="inputGroupPrepend"
+                        required
+                        name="Pwd"
+                        value={cpwd}
+                        onChange={(e) => {
+                            setCpwd(e.target.value);
+                        }} />
+                </div>
                         
-                <button className="btn" type="submit">Sign Up</button>
+                <button className="btn purple-btn" type="submit">Sign Up</button>
             </form>
             <div className="text-center">
             <p style={{ color: '#949494', marginTop: '16px', marginBottom: '2px' }}>
