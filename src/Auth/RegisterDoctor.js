@@ -107,7 +107,7 @@ function RegisterDoctor() {
             <p style={{ color: '#949494', marginTop: '16px', marginBottom: '2px' }}>
                 Already have an Account?
             </p>
-            <Link to="/login" style={{ color: '#8c52ff' }}>
+            <Link to="/" style={{ color: '#8c52ff' }}>
                 Login to an existing Account
             </Link>
             </div>
