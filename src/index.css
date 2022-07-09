@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.purple-btn {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background: #8c52ff;
+  border-radius: 4px;
+  color: #fff;
+}

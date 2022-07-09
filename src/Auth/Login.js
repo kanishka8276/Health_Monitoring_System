@@ -6,7 +6,8 @@ function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     return ( 
-    <>
+    <div className="mt-5">
+    
     <h2 style={{ color: '#535461' }}>Sign In to your Account</h2>
      <div className="shadow-sm p-3 round-boarder gb-white">
         <form>
@@ -48,7 +49,7 @@ function Login() {
               }}
             />
             </div>
-            <button className="btn" type="submit">Sign In</button>
+            <button className="btn purple-btn" type="submit">Sign In</button>
         </form>
         <div className="text-center">
           <p
@@ -61,7 +62,7 @@ function Login() {
           </Link>
         </div>
       </div>      
-    </>);
+      </div>);
 }
 
 export default Login;

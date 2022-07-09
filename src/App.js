@@ -3,10 +3,14 @@ import {
 } from 'react-router-dom';
 import AuthContainer from './Auth/AuthContainer';
 import Login from './Auth/Login';
+import Navbar from './Navbar/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container-fluid">
+      <div className="row">
+      <Navbar/>
+      </div>
         <BrowserRouter>
         <Routes>
             <Route path="/signUp/*" element={<AuthContainer/>} />
