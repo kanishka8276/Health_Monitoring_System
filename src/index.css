@@ -21,7 +21,9 @@ code {
   color: #fff;
   margin-top: 20px;
 }
-
+.btn-signin {
+  width: 40%;
+}
 .form {
   padding: 50px 50px ;
 }

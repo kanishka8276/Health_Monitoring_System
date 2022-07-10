@@ -8,24 +8,27 @@ import RegisterPatient from './RegisterPatient';
 function AuthContainer() {
     return (
     <div className="container-fluid">
-        <div className="mt-5">
-            <div className="row">
-                <div className="col">
+        <div className="row">
+        <div className="col-md-3"></div>
+        <div className="mt-5 col-md-6">
+            <ul className="nav nav-fill">
+                <li class="nav-item">
                     <Link to="">Patient</Link>
-                </div>
-                <div className="col">
+                </li>
+                <li class="nav-item">
                     <Link to="famMem">Family Member</Link>
-                </div>
-                <div className="col">
+                </li>
+                <li class="nav-item">
                     <Link to="doctor">Doctor</Link>
-                </div>
+                </li>
+            </ul>
             </div>
             <Routes>
                 <Route path="/" element={<RegisterPatient/>} />
                 <Route path="doctor" element={<RegisterDoctor/>} />
                 <Route path="famMem" element={<RegisterFamMem/>} />
             </Routes>
-        </div>
+            </div>
     </div>);
 }
 

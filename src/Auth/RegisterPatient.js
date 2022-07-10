@@ -35,7 +35,9 @@ function RegisterPatient() {
     }
 
     return ( 
-        <div className="form">
+        <div className="row">
+        <div className="col-md-3" />
+        <div className="text-center col-md-6">
         <h2 style={{ color: '#535461' }}>Create a new Account</h2>
         <div className="shadow-sm p-3 round-boarder gb-white">
             <form>
@@ -179,7 +181,7 @@ function RegisterPatient() {
                 {showErrorMessage && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
 
                         
-                <button className="btn purple-btn" type="submit">Sign Up</button>
+                <button className="btn purple-btn btn-signin" type="submit">Sign Up</button>
             </form>
             <div className="text-center">
             <p style={{ color: '#949494', marginTop: '16px', marginBottom: '2px' }}>
@@ -190,7 +192,7 @@ function RegisterPatient() {
             </Link>
             </div>
         </div>  
-    
+        </div>
         </div>);
 }
 
