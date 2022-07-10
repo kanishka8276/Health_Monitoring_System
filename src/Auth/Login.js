@@ -6,7 +6,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     return ( 
-    <div className="mt-5">
+    <div className="form">
     
     <h2 style={{ color: '#535461' }}>Sign In to your Account</h2>
      <div className="shadow-sm p-3 round-boarder gb-white">

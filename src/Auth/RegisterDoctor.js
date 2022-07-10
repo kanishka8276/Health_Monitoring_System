@@ -31,7 +31,7 @@ function RegisterDoctor() {
     }
    
     return ( 
-        <div>
+        <div className="form">
         <h2 style={{ color: '#535461' }}>Create a new Account</h2>
         <div className="shadow-sm p-3 round-boarder gb-white">
             <form>
