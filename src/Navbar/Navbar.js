@@ -1,30 +1,51 @@
 import React from 'react';
 import nonotification from '../Asset/nonotification.png'; 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Navbar.css';
 
-function Navbar() { 
+function NavbarContainer() { 
     return (
-    <ul>
-    <div className="navbar fixed-top bg-white shadow d-none d-md-block">
-        <div className="navitems">
-            <li>
-                <a classname="navbar" href="/">Home</a>
-            </li>
-            <li>
-                <p> Welcome to health buddy</p>
-            </li>
-            <li>
-                <div className="icon">
+   
+    <Navbar collapseOnSelect className="nav-color" fixed="top" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">Current Report</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+          <Nav.Link href="#device">Register device</Nav.Link>
+            <Nav.Link href="#pastReports">Past Reports</Nav.Link>
+            <Nav.Link href="#doctor">My Doctor</Nav.Link>
+            <Nav.Link href="#guardian">Guardians</Nav.Link>
+            <Nav.Link  href="#notifications">
                 <img
                         src={nonotification}
                         alt="notifications"
                         className="navbar-icons"
-                        style={{ height: '18px'}} 
-                    />
-                </div>
-            </li>
-        </div>
+                        style={{ height: '20px'}} 
+                />
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <NavDropdown title="My Profile" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#home">Home</NavDropdown.Item>
+                <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#signOut">
+                    Sign Out
+                </NavDropdown.Item>
+            </NavDropdown>
         
-    </div></ul>   
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     );
 }
-export default Navbar;
+export default NavbarContainer;
+
+
+
+
