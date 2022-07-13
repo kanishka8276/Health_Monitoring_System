@@ -21,6 +21,15 @@ code {
   color: #fff;
   margin-top: 20px;
 }
+.purple-btn:hover {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #8c52ff;
+  color: #8c52ff;
+}
 .btn-signin {
   width: 40%;
 }
