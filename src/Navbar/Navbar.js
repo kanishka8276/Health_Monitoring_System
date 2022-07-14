@@ -11,15 +11,15 @@ function NavbarContainer() {
    
     <Navbar collapseOnSelect className="nav-color" fixed="top" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Current Report</Navbar.Brand>
+        <Navbar.Brand href="/currentReport">Current Report</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link href="#device">Register device</Nav.Link>
-            <Nav.Link href="#pastReports">Past Reports</Nav.Link>
-            <Nav.Link href="#doctor">My Doctor</Nav.Link>
-            <Nav.Link href="#guardian">Guardians</Nav.Link>
-            <Nav.Link  href="#notifications">
+          <Nav.Link href="device">Register device</Nav.Link>
+            <Nav.Link href="pastReports">Past Reports</Nav.Link>
+            <Nav.Link href="doctor">My Doctor</Nav.Link>
+            <Nav.Link href="guardian">Guardians</Nav.Link>
+            <Nav.Link  href="notifications">
                 <img
                         src={nonotification}
                         alt="notifications"
@@ -30,10 +30,10 @@ function NavbarContainer() {
           </Nav>
           <Nav>
             <NavDropdown title="My Profile" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#home">Home</NavDropdown.Item>
-                <NavDropdown.Item href="#settings">Settings</NavDropdown.Item>
+                <NavDropdown.Item href="home">Home</NavDropdown.Item>
+                <NavDropdown.Item href="settings">Settings</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#signOut">
+                <NavDropdown.Item href="signOut">
                     Sign Out
                 </NavDropdown.Item>
             </NavDropdown>
