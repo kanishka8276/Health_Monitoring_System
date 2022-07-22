@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Notification from './Notification';
 import './Navbar.css';
 
 function NavbarContainer() { 
@@ -19,7 +20,8 @@ function NavbarContainer() {
             <Nav.Link href="pastReports">Past Reports</Nav.Link>
             <Nav.Link href="doctor">My Doctor</Nav.Link>
             <Nav.Link href="guardian">Guardians</Nav.Link>
-            <Nav.Link  href="notifications">
+          </Nav>
+          <Nav.Link  href="notifications">
                 <img
                         src={nonotification}
                         alt="notifications"
@@ -27,7 +29,6 @@ function NavbarContainer() {
                         style={{ height: '20px'}} 
                 />
             </Nav.Link>
-          </Nav>
           <Nav>
             <NavDropdown title="My Profile" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="home">Home</NavDropdown.Item>
@@ -41,6 +42,7 @@ function NavbarContainer() {
           </Nav>
         </Navbar.Collapse>
       </Container>
+      
     </Navbar>
     );
 }

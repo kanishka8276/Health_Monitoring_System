@@ -7,6 +7,7 @@ import Navbar from './Navbar/Navbar';
 import PatientDashboard from './Dashboard/PatientDashboard';
 import FamMemDashboard from './Dashboard/FamMemDashboard';
 import DoctorDashboard from './Dashboard/DoctorDashboard';
+import SignUp from './Auth/SignUp';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
       </div>
         <BrowserRouter>
         <Routes>
-            <Route path="/signUp/*" element={<AuthContainer/>} />
+            <Route path="/auth/*" element={<AuthContainer/>} />
+            <Route path="/signUp" element={<SignUp />} />
             <Route path="/dashboard/patient" element={<PatientDashboard />} />
             <Route path="/dashboard/FamMem" element={<FamMemDashboard />} />
             <Route path="/dashboard/doctor" element={<DoctorDashboard />} />

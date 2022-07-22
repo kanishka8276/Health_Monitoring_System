@@ -1,0 +1,25 @@
+.notification-container {
+    width: 250px;
+    height: 117px;
+    padding-left: 10px;
+    padding-top: 6px;
+    background: #F2F2F2;
+  border-radius: 4px;
+  }
+  .notification-container > p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  
+  .notifi-msg {
+    width: 100%;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #7e7f8c;
+  }
+  
