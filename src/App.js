@@ -7,6 +7,7 @@ import Navbar from './Navbar/Navbar';
 import PatientDashboard from './Dashboard/PatientDashboard';
 import FamMemDashboard from './Dashboard/FamMemDashboard';
 import DoctorDashboard from './Dashboard/DoctorDashboard';
+import DeviceContainer from './Device/DeviceContainer'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/dashboard/patient" element={<PatientDashboard />} />
             <Route path="/dashboard/FamMem" element={<FamMemDashboard />} />
             <Route path="/dashboard/doctor" element={<DoctorDashboard />} />
+            <Route path="/dashboard/patient/device/*" element={<DeviceContainer />} />
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>
