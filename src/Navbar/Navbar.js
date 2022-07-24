@@ -16,12 +16,12 @@ function NavbarContainer() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-          <Nav.Link href="device">Register device</Nav.Link>
-            <Nav.Link href="pastReports">Past Reports</Nav.Link>
-            <Nav.Link href="doctor">My Doctor</Nav.Link>
-            <Nav.Link href="guardian">Guardians</Nav.Link>
+          <Nav.Link href="/device">Register device</Nav.Link>
+            <Nav.Link href="/pastReports">Past Reports</Nav.Link>
+            <Nav.Link href="/doctor">My Doctor</Nav.Link>
+            <Nav.Link href="/guardian">Guardians</Nav.Link>
           </Nav>
-          <Nav.Link  href="notifications">
+          <Nav.Link>
                 <img
                         src={nonotification}
                         alt="notifications"

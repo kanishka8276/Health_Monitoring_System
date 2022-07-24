@@ -23,7 +23,7 @@ function App() {
             <Route path="/dashboard/patient" element={<PatientDashboard />} />
             <Route path="/dashboard/FamMem" element={<FamMemDashboard />} />
             <Route path="/dashboard/doctor" element={<DoctorDashboard />} />
-            <Route path="/dashboard/patient/device/*" element={<DeviceContainer />} />
+            <Route path="/device/*" element={<DeviceContainer />} />
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>

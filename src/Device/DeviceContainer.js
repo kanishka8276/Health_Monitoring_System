@@ -4,7 +4,7 @@ import Disease1 from './Disease1';
 import Disease2 from './Disease2';
 
 
-function AuthContainer() {
+function DeviceContainer() {
     return (
     <div className="container-fluid">
         <div className="row">
@@ -28,4 +28,4 @@ function AuthContainer() {
     </div>);
 }
 
-export default AuthContainer;
+export default DeviceContainer;
