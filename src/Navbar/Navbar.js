@@ -18,7 +18,7 @@ function NavbarContainer() {
           <Nav className="me-auto">
           <Nav.Link href="/device">Register device</Nav.Link>
             <Nav.Link href="/pastReports">Past Reports</Nav.Link>
-            <Nav.Link href="/guardian">Guardians</Nav.Link>
+            <Nav.Link href="/caretaker">Caretaker</Nav.Link>
           </Nav>
           <Nav.Link>
                 <img

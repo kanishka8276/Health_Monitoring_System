@@ -12,6 +12,7 @@ import SignUp from './Auth/SignUp';
 import DeviceContainer from './Device/DeviceContainer';
 import PatientPastReports from './Dashboard/PatientPastReports';
 import PatientReport from './Dashboard/PatientReport';
+import Caretaker from './Dashboard/Caretaker';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/device/*" element={<DeviceContainer />} />
             <Route path="/pastReports" element={<PatientPastReports />} />
             <Route path="/report" element={<PatientReport />} />
+            <Route path="/caretaker" element={<Caretaker />} />
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>
