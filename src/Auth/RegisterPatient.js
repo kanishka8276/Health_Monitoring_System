@@ -17,7 +17,7 @@ function RegisterPatient() {
         <div className="text-center col-md-6">
         <h2 style={{ color: '#535461' }}>Fill your details</h2>
         <div className="shadow-sm p-3 round-boarder gb-white">
-            <form>
+            <form >
             <div className="name">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Name</label><br />
                 <div className="input-group flex-nowrap mb-1">
