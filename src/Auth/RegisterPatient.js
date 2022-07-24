@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
+import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase"
+import { useAuth } from "../Context/AuthContext"
 
 function RegisterPatient() {
     const [name, setName] = useState('');
@@ -10,14 +13,38 @@ function RegisterPatient() {
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
     const [blood, setBlood] = useState('');
-
+    const {currentUser} = useAuth();
+    // const dbRef = collection(db, "profile");
+    const docRef = doc(db, "profile", currentUser.uid)
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        console.log(docRef);
+        try {
+            console.log("added");
+            await setDoc(docRef, {
+                name: name,
+                phone:phone,
+                age : age,
+                gender : gender,
+                address : address,
+                height : height,
+                weight : weight,
+                blood : blood,
+                type: "Patient",
+                
+            });
+            console.log("added");
+          } catch (err) {
+            alert(err)
+          }
+    }
     return ( 
         <div className="row">
         <div className="col-md-3" />
         <div className="text-center col-md-6">
         <h2 style={{ color: '#535461' }}>Fill your details</h2>
         <div className="shadow-sm p-3 round-boarder gb-white">
-            <form >
+            <form onSubmit={submitHandler}>
             <div className="name">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Name</label><br />
                 <div className="input-group flex-nowrap mb-1">
@@ -137,11 +164,7 @@ function RegisterPatient() {
                         setAddress(e.target.value);
                         }} />
                     </div>
-                </div> 
-
-                
-                
-                        
+                </div>     
                 <button className="btn purple-btn btn-signin" type="submit">Submit</button>
             </form>
             
