@@ -2,6 +2,7 @@ import {
   BrowserRouter, Route, Routes,
 } from 'react-router-dom';
 import AuthContainer from './Auth/AuthContainer';
+import AuthProvider from './Context/AuthContext';
 import Login from './Auth/Login';
 import Navbar from './Navbar/Navbar';
 import PatientDashboard from './Dashboard/PatientDashboard';
@@ -17,6 +18,7 @@ function App() {
       <div className="row">
       <Navbar/>
       </div>
+      <AuthProvider>
         <BrowserRouter>
         <Routes>
             <Route path="/auth/*" element={<AuthContainer/>} />
@@ -29,6 +31,7 @@ function App() {
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>
+        </AuthProvider>
     </div>
   );
 }

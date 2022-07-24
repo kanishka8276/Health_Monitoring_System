@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
-
+import { useAuth } from "../Context/AuthContext"
 
 function Login() {
+    const { login } = useAuth()
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    async function handleSubmit(e) {
+      e.preventDefault()
+  
+      try {
+        await login(email, pwd)
+      } catch {
+        console.log("failed");
+      }
+    }
     return ( 
     <div className="row">
       <div className="col-md-3" />
       <div className="text-center col-md-6">
     <h2 style={{ color: '#535461' }} className="mt-5">Sign In to your Account</h2>
      <div className="shadow-sm p-3 round-boarder gb-white">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="exampleFormControlInput1" className="form-label">
               Email Address
