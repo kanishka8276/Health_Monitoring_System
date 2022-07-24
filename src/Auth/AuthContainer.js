@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route,Routes} from 'react-router-dom';
 import RegisterDoctor from './RegisterDoctor';
-import RegisterFamMem from './RegisterFamMem';
 import RegisterPatient from './RegisterPatient';
 
 
@@ -15,7 +14,6 @@ function AuthContainer() {
             <Routes>
                 <Route path="patient" element={<RegisterPatient/>} />
                 <Route path="doctor" element={<RegisterDoctor/>} />
-                <Route path="famMem" element={<RegisterFamMem/>} />
             </Routes>
             </div>
     </div>);
