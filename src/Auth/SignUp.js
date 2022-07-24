@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { Link,useNavigate} from 'react-router-dom';
-import { useAuth } from "../Context/AuthContext"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 function SignUp() { 
-    const { signup } = useAuth()
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
     const [userType, setUserType] = useState('');
-    const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [cPasswordClass, setCPasswordClass] = useState('form-control');
     const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
+    const auth = getAuth();
     const submitHandler = async (e) => {
       e.preventDefault();
-      try {
-        await signup(email, password);
-        navigate(`/auth/${userType}`);
-      } catch {
-        console.log("failed");
-      }
+    console.log("*");
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    navigate(`/auth/${userType}`);
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
     };
     useEffect(() => {
         if (isCPasswordDirty) {
@@ -47,21 +49,6 @@ function SignUp() {
     <h2 style={{ color: '#535461' }}>Create a new Account</h2>
     <div className="shadow-sm p-3 round-boarder gb-white">
         <form onSubmit={submitHandler}>
-            <div className="name">
-                <label htmlFor="exampleFormControlInput1" className="form-label">Name</label><br />
-                <div className="input-group flex-nowrap mb-1">
-                    <input 
-                        className="form-control" 
-                        type="text" 
-                        id="firstName" 
-                        placeholder="Name" 
-                        required
-                        value={name}
-                        onChange={(e) => {
-                        setName(e.target.value);
-                        }} />
-                </div>
-            </div>
 
             <div className="email">
                 <label htmlFor="exampleFormControlInput1" className="form-label">
@@ -83,21 +70,6 @@ function SignUp() {
                         }} />
                 </div>
             </div> 
-            <div className="phone">
-                <label htmlFor="exampleFormControlInput1" className="form-label">Phone</label><br />
-                <div className="input-group flex-nowrap mb-1">
-                    <input 
-                        className="form-control" 
-                        type="tel" 
-                        id="phone" 
-                        placeholder="Phone number" 
-                        required
-                        value={phone}
-                        onChange={(e) => {
-                        setPhone(e.target.value);
-                        }} />
-                </div>
-            </div>
             <div className="userType mb-3">
             <div className="row">
                     <div className="col-3">

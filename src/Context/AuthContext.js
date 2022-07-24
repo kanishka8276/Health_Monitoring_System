@@ -35,6 +35,7 @@ export default function AuthProvider({ children }) {
     return currentUser.updatePassword(password)
   }
 
+
   const value = {
     currentUser,
     login,

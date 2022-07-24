@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
 import { useAuth } from "../Context/AuthContext"
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
 
 function Login() {
-    const { login } = useAuth()
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     async function handleSubmit(e) {
-      e.preventDefault()
-  
-      try {
-        await login(email, pwd)
-      } catch {
-        console.log("failed");
-      }
+      e.preventDefault();
+      signInWithEmailAndPassword(auth, email, pwd)
+  .then((userCredential) => {
+    const user = userCredential.user;
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+
     }
     return ( 
     <div className="row">
