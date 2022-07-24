@@ -16,6 +16,16 @@
     padding:1.5%;
     border-left: 18px solid #8C52FF;
 }
+.rowCard2 {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px rgba(202, 198, 198, 0.5);
+    border-radius: 4px;
+    height:150px;
+    width: 500px;
+    margin:3% 2%;
+    padding:1.5%;
+}
+
 .rowHeading {
     font-weight: 500;
     font-size: 18px;
@@ -41,4 +51,12 @@
 }
 .report-details {
     margin-left: 150px;
+}
+.newrow{
+    display:inline
+}
+.details2 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #000000;
 }

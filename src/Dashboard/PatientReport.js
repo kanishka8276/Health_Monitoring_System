@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import './Dashboard.css';
+import { Modal } from 'react-bootstrap';
+import add from '../Asset/add.png'
 
 function PatientReport() { 
+    const [show, setShow] = useState(false);
+    const [comment, setComment] = useState('None');
     return (
         <div className="row">
         <div className="col-md-3" />
@@ -31,12 +35,49 @@ function PatientReport() {
                     <p className="report">Smoking : No </p>
                     <p className="report">Drinking : Yes </p>
                     <p className="report">Cardiovascular Disease : Yes </p>
-                    <p className="report">Any comments : None </p>
                 </div>
                 </div>
                 
             </div>
-
+            <p className="report">Comments : {comment} </p>
+            <button className="btn purple-outline-btn" onClick={() => setShow(true)}>
+            <img src={add} alt="Add Comment" className="img" />
+            {' '}
+            Add Comment
+            </button>
+            <Modal
+          show={show}
+          onHide={() => setShow(false)}
+          backdrop="static"
+          keyboard={false}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+            <Modal.Header className="bg-modal m-3" style={{ padding: '10px 15px 0px 15px' }}>
+            Add Comment
+            {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+            <button type="button" className="btn-close" onClick={() => setShow(false)} />
+          </Modal.Header>
+          <Modal.Body className="bg-modal">
+            <input 
+                type="text" 
+                placeholder='Comment'  
+                className="form-control"
+                value={comment}
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+                 />
+          </Modal.Body>
+          <Modal.Footer>
+          <button
+              type="button"
+              className="btn purple-btn"
+              onClick={() => setShow(false)}
+            >
+                Submit</button>  
+        </Modal.Footer>
+        </Modal>
         </div>
         </div>
 

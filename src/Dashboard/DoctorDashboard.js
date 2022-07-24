@@ -38,6 +38,7 @@ function DoctorDashboard() {
           <button
               type="button"
               className="btn purple-btn"
+              onClick={() => setShow(false)}
             >
                 Submit</button>  
         </Modal.Footer>
