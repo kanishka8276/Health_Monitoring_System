@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link,useNavigate} from 'react-router-dom';
+import { useAuth } from "../Context/AuthContext"
 
 function SignUp() { 
+    const { signup } = useAuth()
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [userType, setUserType] = useState('');
@@ -14,7 +16,12 @@ function SignUp() {
     const navigate = useNavigate();
     const submitHandler = async (e) => {
       e.preventDefault();
-      navigate(`/auth/${userType}`);
+      try {
+        await signup(email, password);
+        navigate(`/auth/${userType}`);
+      } catch {
+        console.log("failed");
+      }
     };
     useEffect(() => {
         if (isCPasswordDirty) {
