@@ -10,6 +10,7 @@ import DoctorDashboard from './Dashboard/DoctorDashboard';
 import SignUp from './Auth/SignUp';
 import DeviceContainer from './Device/DeviceContainer';
 import PatientPastReports from './Dashboard/PatientPastReports';
+import PatientReport from './Dashboard/PatientReport';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/dashboardDoctor/*" element={<DoctorDashboard />} />
             <Route path="/device/*" element={<DeviceContainer />} />
             <Route path="/pastReports" element={<PatientPastReports />} />
+            <Route path="/report" element={<PatientReport />} />
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>

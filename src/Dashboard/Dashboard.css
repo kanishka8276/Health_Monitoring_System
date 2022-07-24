@@ -7,6 +7,15 @@
     padding:1.5%;
     border-left: 18px solid #8C52FF;
 }
+.rowCard1 {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px rgba(202, 198, 198, 0.5);
+    border-radius: 4px;
+    height:70px;
+    margin:3% 2%;
+    padding:1.5%;
+    border-left: 18px solid #8C52FF;
+}
 .rowHeading {
     font-weight: 500;
     font-size: 18px;
@@ -23,4 +32,13 @@
     font-size: 12px;
     line-height: 14px;
     color: #000000;
+}
+.report {
+    font-weight: 500;
+}
+.report-span {
+    display: flex;
+}
+.report-details {
+    margin-left: 150px;
 }
