@@ -9,6 +9,7 @@ export function useAuth() {
 
 export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
+  const [profile, setProfile] = useState()
   const [loading, setLoading] = useState(true)
 
   function signup(email, password) {

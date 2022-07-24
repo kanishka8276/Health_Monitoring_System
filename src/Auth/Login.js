@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import { Link} from 'react-router-dom';
 import { useAuth } from "../Context/AuthContext"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const auth = getAuth();
 
 function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
+    const {setCurrentUser} = useAuth();
     async function handleSubmit(e) {
       e.preventDefault();
       signInWithEmailAndPassword(auth, email, pwd)
   .then((userCredential) => {
-    const user = userCredential.user;
-
+    setCurrentUser(userCredential.user);
   })
   .catch((error) => {
     const errorCode = error.code;
