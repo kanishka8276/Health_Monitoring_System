@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import CaretakerList from './CaretakerList';
 import add from '../Asset/add.png';
+import { useAuth } from "../Context/AuthContext";
 import { getAuth, getUserByEmail } from "firebase/auth";
 import { doc, getDoc ,updateDoc} from "firebase/firestore";
 import { db } from "../firebase"
@@ -11,9 +12,11 @@ import { db } from "../firebase"
 function Caretaker() { 
     const [show, setShow] = useState(false);
     const [email, setEmail] = useState('');
+    const { currentUser} = useAuth();
     async function addInBackend(data) {
-      const docRef = doc(db, "caretakers", email);
-      updateDoc(docRef, data)
+      console.log(currentUser);
+      const docRef = doc(db, "careTaker",currentUser.uid);
+      updateDoc(docRef, {email:data})
       .then(docRef => {
           console.log("A New Document Field has been added to an existing document");
       })

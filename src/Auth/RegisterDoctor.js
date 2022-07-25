@@ -13,8 +13,9 @@ function RegisterDoctor() {
     const [address, setAddress]=useState('');
     const {currentUser,setProfile} = useAuth();
     const navigate = useNavigate();
-    // const dbRef = collection(db, "profile");
-    const docRef = doc(db, "profile", currentUser.uid)
+    console.log(currentUser);
+    const docRef = doc(db, "profile", currentUser.uid);
+    
     const submitHandler = async (e) => {
         e.preventDefault();
         console.log(docRef);

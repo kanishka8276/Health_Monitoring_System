@@ -22,6 +22,7 @@ function SignUp() {
   .then((userCredential) => {
     setCurrentUser(userCredential.user);
     console.log(userCredential.user);
+    console.log(userCredential.user);
     setProfile({type:userType})
     navigate(`/auth/${userType}`);
   })
