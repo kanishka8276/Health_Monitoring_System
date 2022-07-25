@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import {  doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase"
 import { useAuth } from "../Context/AuthContext"
@@ -13,7 +13,8 @@ function RegisterPatient() {
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
     const [blood, setBlood] = useState('');
-    const {currentUser} = useAuth();
+    const {currentUser,setProfile} = useAuth();
+    const navigate = useNavigate();
     // const dbRef = collection(db, "profile");
     const docRef = doc(db, "profile", currentUser.uid);
     const docRef1 = doc(db, "careTaker", currentUser.uid);
@@ -28,7 +29,7 @@ function RegisterPatient() {
           }
         try {
             console.log("added");
-            await setDoc(docRef, {
+            const data= {
                 name: name,
                 phone:phone,
                 age : age,
@@ -38,9 +39,11 @@ function RegisterPatient() {
                 weight : weight,
                 blood : blood,
                 type: "Patient",
-                
-            });
+            };
+            await setDoc(docRef,data);
             console.log("added");
+            navigate("/dashboardPatient");
+            setProfile(data);
           } catch (err) {
             alert(err)
           }

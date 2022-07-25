@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../Context/AuthContext";
-import { useNavigate} from 'react-router-dom';
 
 function RegisterDoctor() {
     const [name, setName] = useState('');
