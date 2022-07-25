@@ -2,10 +2,29 @@ import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import CaretakerList from './CaretakerList';
-import add from '../Asset/add.png'
+import add from '../Asset/add.png';
+import { getAuth, getUserByEmail } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase"
+
 
 function Caretaker() { 
     const [show, setShow] = useState(false);
+    const [email, setEmail] = useState('');
+   
+   async function addCareTaker() {
+      const docRef = doc(db, "profile", email);
+    try {
+      const docSnap =await getDoc(docRef);
+      if(docSnap.exists()) {
+          console.log(docSnap.data());
+      } else {
+          console.log("Document does not exist")
+      }
+    
+  } catch(error) {
+      console.log(error)
+  }}
     return ( 
     <div className="container-fluid">
         <div className="row mt-5">
@@ -33,9 +52,19 @@ function Caretaker() {
             <button type="button" className="btn-close" onClick={() => setShow(false)} />
           </Modal.Header>
           <Modal.Body className="bg-modal">
-            <input type="text" placeholder='Caretaker id'  className="form-control"/>
+            <input type="text" placeholder='Caretaker id'  className="form-control"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}/>
           </Modal.Body>
           <Modal.Footer>
+          <button
+              type="button"
+              className="btn purple-btn"
+              onClick={() =>addCareTaker()}
+            >
+                Submit</button>  
         </Modal.Footer>
         </Modal>
         </div>
