@@ -4,6 +4,7 @@ import { useAuth } from "../Context/AuthContext";
 import { useNavigate} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import { Link} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import './Navbar.css';
 
@@ -22,7 +23,7 @@ function NavbarContainer() {
           
             {profile.type === "Patient" && (<Nav className="me-auto"><Nav.Link href="/device">Register device</Nav.Link>
             <Nav.Link href="/pastReports">Past Reports</Nav.Link>
-            <Nav.Link href="/caretaker">Caretaker</Nav.Link>
+            <Link to="/caretaker" style={{color:'#fff'}}>Caretaker</Link>
           </Nav>)}
         </Navbar.Collapse>
         <div className="float-end">

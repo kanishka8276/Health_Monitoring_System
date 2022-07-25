@@ -13,12 +13,18 @@ function Caretaker() {
     const [show, setShow] = useState(false);
     const [email, setEmail] = useState('');
     const { currentUser} = useAuth();
+    const [caretakers,setCareTakers] = useState({});
     async function addInBackend(data) {
       console.log(currentUser);
       const docRef = doc(db, "careTaker",currentUser.uid);
-      updateDoc(docRef, {email:data})
+      const Data={
+      [email]:data
+      };
+     await updateDoc(docRef, Data)
       .then(docRef => {
           console.log("A New Document Field has been added to an existing document");
+          getCareTaker();
+          setShow(false);
       })
       .catch(error => {
           console.log(error);
@@ -39,6 +45,22 @@ function Caretaker() {
   } catch(error) {
       console.log(error)
   }}
+  async function getCareTaker() {
+    const docRef = doc(db, "careTaker", currentUser.uid);
+  try {
+    const docSnap =await getDoc(docRef);
+    if(docSnap.exists()) {
+        setCareTakers(docSnap.data());
+    } else {
+        console.log("Document does not exist")
+    }
+  
+} catch(error) {
+    console.log(error)
+}}
+useEffect(() => {
+  getCareTaker();
+},[]);
     return ( 
     <div className="container-fluid">
         <div className="row mt-5">
@@ -49,9 +71,7 @@ function Caretaker() {
             {' '}
             Add Caretaker
         </button></h4>
-        
-        <CaretakerList/>
-        <CaretakerList/>
+       { Object.entries(caretakers).map(([key, value]) =>  <CaretakerList name={value.name} contact={value.phone}/>) }
         <Modal
           show={show}
           onHide={() => setShow(false)}
