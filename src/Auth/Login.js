@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link,useNavigate} from 'react-router-dom';
-import { useAuth } from "../Context/AuthContext"
+import { useAuth } from "../Context/AuthContext";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase"
@@ -10,7 +10,7 @@ const auth = getAuth();
 function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
-    const {setCurrentUser, currentUser} = useAuth();
+    const {setCurrentUser, currentUser,setProfile} = useAuth();
     const navigate = useNavigate();
     async function handleSubmit(e) {
       e.preventDefault();
@@ -22,21 +22,26 @@ function Login() {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-  const docRef = doc(db, "profile", currentUser.uid);
-  console.log(currentUser);
-  try {
-    const docSnap = await getDoc(docRef);
-    if(docSnap.exists()) {
-        console.log(docSnap.data());
-    } else {
-        console.log("Document does not exist")
-    }
-    navigate(`/dashboard${docSnap.data().type}`);
-} catch(error) {
-    console.log(error)
-}
 
     }
+    useEffect(() => {
+      console.log(currentUser);
+      async function fetchData() {
+      try {
+        const docRef = doc(db, "profile", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+        if(docSnap.exists()) {
+            setProfile(docSnap.data());
+        } else {
+            console.log("Document does not exist")
+        }
+        navigate(`/dashboard${docSnap.data().type}`);
+    } catch(error) {
+        console.log(error)
+    }
+  }
+  fetchData();
+    }, [currentUser]); 
     return ( 
     <div className="row">
       <div className="col-md-3" />

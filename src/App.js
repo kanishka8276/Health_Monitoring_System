@@ -1,5 +1,5 @@
 import {
-  BrowserRouter, Route, Routes,
+  BrowserRouter, Route, Routes
 } from 'react-router-dom';
 import AuthContainer from './Auth/AuthContainer';
 import AuthProvider from './Context/AuthContext';
@@ -17,11 +17,11 @@ import Caretaker from './Dashboard/Caretaker';
 function App() {
   return (
     <div className="container-fluid">
-      <div className="row">
-      <Navbar/>
-      </div>
       <AuthProvider>
         <BrowserRouter>
+        <div className="row">
+      <Navbar/>
+      </div>
         <Routes>
             <Route path="/auth/*" element={<AuthContainer/>} />
             <Route path="/signUp" element={<SignUp />} />

@@ -7,13 +7,14 @@ function SignUp() {
     const [userType, setUserType] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
+    const [errorM, setError] = useState('');
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [cPasswordClass, setCPasswordClass] = useState('form-control');
     const [isCPasswordDirty, setIsCPasswordDirty] = useState(false);
     const [email, setEmail] = useState('');
     const navigate = useNavigate();
     const auth = getAuth();
-    const {setCurrentUser} = useAuth();
+    const {setCurrentUser,setProfile} = useAuth();
     const submitHandler = async (e) => {
       e.preventDefault();
     console.log("*");
@@ -21,11 +22,12 @@ function SignUp() {
   .then((userCredential) => {
     setCurrentUser(userCredential.user);
     console.log(userCredential.user);
+    setProfile({type:userType})
     navigate(`/auth/${userType}`);
   })
   .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+    console.log(error);
+    setError(error.message);
   });
     };
     useEffect(() => {
@@ -119,7 +121,7 @@ function SignUp() {
                     onChange={handleCPassword} />
             </div>
             {showErrorMessage && isCPasswordDirty ? <div> Passwords did not match </div> : ''}
-                    
+            <p className="error">{errorM}</p>       
             <button className="btn purple-btn btn-signin" type="submit">Sign Up</button>
         </form>
         <div className="text-center">

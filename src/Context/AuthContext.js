@@ -9,7 +9,7 @@ export function useAuth() {
 
 export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
-  const [profile, setProfile] = useState()
+  const [profile, setProfile] = useState({})
   const [loading, setLoading] = useState(true)
 
   function signup(email, password) {
@@ -40,6 +40,8 @@ export default function AuthProvider({ children }) {
   const value = {
     currentUser,
     setCurrentUser,
+    profile,
+    setProfile,
     login,
     signup,
     logout,
