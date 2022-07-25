@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import { useAuth } from "../Context/AuthContext"
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase"
 
 const auth = getAuth();
 
 function Login() {
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
-    const {setCurrentUser} = useAuth();
+    const {setCurrentUser, currentUser} = useAuth();
+    const navigate = useNavigate();
     async function handleSubmit(e) {
       e.preventDefault();
       signInWithEmailAndPassword(auth, email, pwd)
@@ -20,7 +22,19 @@ function Login() {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-
+  const docRef = doc(db, "profile", currentUser.uid);
+  console.log(currentUser);
+  try {
+    const docSnap = await getDoc(docRef);
+    if(docSnap.exists()) {
+        console.log(docSnap.data());
+    } else {
+        console.log("Document does not exist")
+    }
+    navigate(`/dashboard${docSnap.data().type}`);
+} catch(error) {
+    console.log(error)
+}
 
     }
     return ( 
