@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase"
-import { useAuth } from "../Context/AuthContext"
-
+import { db } from "../firebase";
+import { useAuth } from "../Context/AuthContext";
+import { useNavigate} from 'react-router-dom';
 
 function RegisterDoctor() {
     const [name, setName] = useState('');
@@ -11,7 +11,8 @@ function RegisterDoctor() {
     const [specialization, setSpecialization] = useState('');
     const [experience, setExperience] = useState(''); 
     const [address, setAddress]=useState('');
-    const {currentUser} = useAuth();
+    const {currentUser,setProfile} = useAuth();
+    const navigate = useNavigate();
     // const dbRef = collection(db, "profile");
     const docRef = doc(db, "profile", currentUser.uid)
     const submitHandler = async (e) => {
@@ -19,7 +20,7 @@ function RegisterDoctor() {
         console.log(docRef);
         try {
             console.log("added");
-            await setDoc(docRef, {
+            const data= {
                 name:name,
                 phone:phone,
                 specialization :specialization,
@@ -27,8 +28,11 @@ function RegisterDoctor() {
                 address :  address,
                 type:"Doctor",
                 
-            });
+            };
+            await setDoc(docRef,data);
             console.log("added");
+            navigate("/dashboardDoctor");
+            setProfile(data);
           } catch (err) {
             alert(err)
           }

@@ -4,20 +4,31 @@ import { Modal } from 'react-bootstrap';
 import CaretakerList from './CaretakerList';
 import add from '../Asset/add.png';
 import { getAuth, getUserByEmail } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc ,updateDoc} from "firebase/firestore";
 import { db } from "../firebase"
 
 
 function Caretaker() { 
     const [show, setShow] = useState(false);
     const [email, setEmail] = useState('');
-   
+    async function addInBackend(data) {
+      const docRef = doc(db, "caretakers", email);
+      updateDoc(docRef, data)
+      .then(docRef => {
+          console.log("A New Document Field has been added to an existing document");
+      })
+      .catch(error => {
+          console.log(error);
+      })
+      
+  }
    async function addCareTaker() {
       const docRef = doc(db, "profile", email);
     try {
       const docSnap =await getDoc(docRef);
       if(docSnap.exists()) {
           console.log(docSnap.data());
+          addInBackend(docSnap.data())
       } else {
           console.log("Document does not exist")
       }
