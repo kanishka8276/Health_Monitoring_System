@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import { getFirestore, collection, addDoc, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase"
 import { useAuth } from "../Context/AuthContext"
@@ -7,21 +7,24 @@ import { useAuth } from "../Context/AuthContext"
 function RegisterFamMem() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const {currentUser} = useAuth();
+    const {currentUser,setProfile} = useAuth();
     // const dbRef = collection(db, "profile");
+    const navigate = useNavigate();
     const docRef = doc(db, "profile", currentUser.uid)
     const submitHandler = async (e) => {
         e.preventDefault();
         console.log(docRef);
         try {
             console.log("added");
-            await setDoc(docRef, {
+            const data= {
                 name:name,
                 phone:phone,
                 type:"Family Member",
-                
-            });
+            };
+            await setDoc(docRef,data);
             console.log("added");
+            navigate("/dashboardFamMem");
+            setProfile(data);
           } catch (err) {
             alert(err)
           }
