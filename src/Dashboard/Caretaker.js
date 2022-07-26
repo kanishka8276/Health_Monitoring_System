@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Link} from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import CaretakerList from './CaretakerList';
 import add from '../Asset/add.png';
 import { useAuth } from "../Context/AuthContext";
-import { getAuth, getUserByEmail } from "firebase/auth";
 import { doc, getDoc ,updateDoc} from "firebase/firestore";
 import { db } from "../firebase"
 

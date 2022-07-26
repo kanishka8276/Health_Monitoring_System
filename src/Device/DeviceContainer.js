@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
+import { useAuth } from "../Context/AuthContext";
+import axios from 'axios';
 
 function Disease1() {
     const [bp1, setBp1] = useState('');
@@ -9,13 +11,36 @@ function Disease1() {
     const [drink, setDrink] = useState('');
     const [exercise, setExercise] = useState('');
 
+    const generateReport = async () => {
+        try {
+          const resp = await axios.post('https://real-time-hms.herokuapp.com/api/predict', {
+            "active":"int: 0/1",
+            "age":"int",
+            "alcohol":drink,
+            "cholestrol_val":cholestrol,
+            "distolic_bp":bp2,
+            "gender":"male/female",
+            "glucose_condition":"str: fasting/random/post_meal",
+            "glucose_val":"int",
+            "height":"int",
+            "smoke":smoke,
+            "systolic_bp":bp1,
+            "user_id":"id",
+            "weight":"int"
+          });
+          console.log(resp);
+        } catch (err) {
+          console.log(err);
+        }
+    };
+  
     return ( 
         <div className="row">
         <div className="col-md-3" />
         <div className="text-center col-md-6">
         <h2 style={{ color: '#535461' }}>Fill out the form</h2>
         <div className="shadow-sm p-3 round-boarder gb-white">
-            <form>
+            <form onSubmit={generateReport}>
                 <div className="bp1">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Systolic Blood Pressure in mm Hg</label><br />
                     <div className="input-group flex-nowrap mb-1">
@@ -63,7 +88,7 @@ function Disease1() {
                         required
                         type="radio"
                         name="type-1"
-                        value="Yes"
+                        value={1}
                         onClick={(e) => { setExercise(e.target.value); }}
                       />
                       {' '}
@@ -73,7 +98,7 @@ function Disease1() {
                       <input
                         type="radio"
                         name="type-1"
-                        value="No"
+                        value={0}
                         onClick={(e) => { setExercise(e.target.value); }}
                       />
                       {' '}
@@ -89,7 +114,7 @@ function Disease1() {
                         required
                         type="radio"
                         name="type-2"
-                        value="Yes"
+                        value={1}
                         onClick={(e) => { setSmoke(e.target.value); }}
                       />
                       {' '}
@@ -99,7 +124,7 @@ function Disease1() {
                       <input
                         type="radio"
                         name="type-2"
-                        value="No"
+                        value={0}
                         onClick={(e) => { setSmoke(e.target.value); }}
                       />
                       {' '}
@@ -115,7 +140,7 @@ function Disease1() {
                         required
                         type="radio"
                         name="user-type"
-                        value="Yes"
+                        value={1}
                         onClick={(e) => { setDrink(e.target.value); }}
                       />
                       {' '}
@@ -125,7 +150,7 @@ function Disease1() {
                       <input
                         type="radio"
                         name="user-type"
-                        value="No"
+                        value={0}
                         onClick={(e) => { setDrink(e.target.value); }}
                       />
                       {' '}
