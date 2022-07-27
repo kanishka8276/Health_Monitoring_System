@@ -61,8 +61,8 @@ useEffect(() => {
 },[]);
     return ( 
     <div className="container-fluid">
-        <div className="row mt-5">
-            <div className="col-12 col-lg-10">
+        <div className="row">
+            <div className="col-12">
             <h4 className="mb-3">Your Caretakers 
         <button className="btn purple-outline-btn float-end" onClick={() => setShow(true)}>
         <img src={add} alt="Add chapter" className="img" />

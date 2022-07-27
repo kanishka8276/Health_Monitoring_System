@@ -14,7 +14,7 @@ function Disease1() {
     const generateReport = async () => {
         try {
           const resp = await axios.post('https://real-time-hms.herokuapp.com/api/predict', {
-            "active":"int: 0/1",
+            "active":exercise,
             "age":"int",
             "alcohol":drink,
             "cholestrol_val":cholestrol,

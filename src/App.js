@@ -31,7 +31,7 @@ function App() {
             <Route path="/device/*" element={<DeviceContainer />} />
             <Route path="/pastReports" element={<PatientPastReports />} />
             <Route path="/report" element={<PatientReport />} />
-            <Route path="/caretaker" element={<Caretaker />} />
+            <Route path="/recommendations" element={<Caretaker />} />
             <Route path="/" element={<Login/>} />
         </Routes>
         </BrowserRouter>

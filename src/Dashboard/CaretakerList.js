@@ -5,14 +5,14 @@ import './Dashboard.css';
 function PatientListItem({name,contact}) { 
     return (
     <div className="rowCard">
-          <div className="rowHeading col-7">
+          <div className="rowHeading col-12">
           {name}
           </div>
         <div className="row" style={{marginTop:"-2%"}}> 
-          <div className="col-3 details">
+          <div className="col-5 details">
            Contact: {contact}
           </div>
-          <div className="col-9">
+          <div className="col-7">
                 <button
                   type="button"
                   className="btn purple-btn float-end"

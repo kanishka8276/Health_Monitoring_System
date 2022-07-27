@@ -14,20 +14,22 @@ function NavbarContainer() {
   const navigate = useNavigate();
     return (
       <>
-      { location.pathname !== '/' && location.pathname !=='/signUp' && location.pathname !=='/auth/*' && (
+      { location.pathname !== '/' && location.pathname !=='/signUp' && location.pathname !=='/auth/Patient' && location.pathname !=='/auth/Doctor' &&  location.pathname !=='/auth/FamMem' && (
     <Navbar collapseOnSelect className="nav-color" fixed="top" variant="dark">
       <Container>
-        <Navbar.Brand href={`/dashboard${profile.type}`}>Home</Navbar.Brand>
+        <Link to={`/dashboard${profile.type}`} style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none m-2">Home</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           
-            {profile.type === "Patient" && (<Nav className="me-auto"><Nav.Link href="/device">Register device</Nav.Link>
-            <Nav.Link href="/pastReports">Past Reports</Nav.Link>
-            <Link to="/caretaker" style={{color:'#fff'}}>Caretaker</Link>
+            {profile.type === "Patient" && 
+            (<Nav className="me-auto">
+            <Link to="/generateReport" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none m-2"><strong>Generate Report </strong></Link>
+            <Link to="/pastReports" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none  m-2"><strong>Past Reports</strong></Link>
+            <Link to="/recommendation" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none m-2"><strong>Recommendations</strong></Link>
           </Nav>)}
         </Navbar.Collapse>
         <div className="float-end">
-            <button className="btn" onClick={() => {setCurrentUser();navigate('/')}}>Sign Out</button>
+            <button className="btn" style={{color:'#fff',fontSize:'18px'}} onClick={() => {setCurrentUser();navigate('/')}}>Sign Out</button>
           </div>
       </Container>
       

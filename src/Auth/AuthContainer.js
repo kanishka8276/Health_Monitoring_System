@@ -9,7 +9,7 @@ function AuthContainer() {
     <div className="container-fluid">
         <div className="row">
         <div className="col-md-3"></div>
-        <div className="mt-5 col-md-6">
+        <div className="col-md-6">
             </div>
             <Routes>
                 <Route path="patient" element={<RegisterPatient/>} />

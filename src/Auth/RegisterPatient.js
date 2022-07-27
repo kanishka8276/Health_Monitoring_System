@@ -101,19 +101,30 @@ function RegisterPatient() {
                     </div>
                 </div> 
                 <div className="gender">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Gender </label><br />
-                    <div className="input-group flex-nowrap mb-1">
-                    <input  
-                        type="text" 
-                        name=""  
-                        className="form-control" 
-                        placeholder="Gender" 
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Gender</label><br />
+                    <div className="row" style={{marginTop:"-30px"}}>
+                    <div className="col-6">
+                      <input
                         required
-                        value={gender}
-                        onChange={(e) => {
-                        setGender(e.target.value);
-                        }} />
+                        type="radio"
+                        name="type-1"
+                        value="male"
+                        onClick={(e) => { setGender(e.target.value); }}
+                      />
+                      {' '}
+                      <label htmlFor="radio" className="form-label__v2">Male</label>
                     </div>
+                    <div className="col-6">
+                      <input
+                        type="radio"
+                        name="type-1"
+                        value="female"
+                        onClick={(e) => { setGender(e.target.value); }}
+                      />
+                      {' '}
+                      <label htmlFor="radio" className="form-label__v2">Female</label>
+                    </div> 
+                    </div>        
                 </div>
                 <div className="height">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Height (in cm) </label><br />
