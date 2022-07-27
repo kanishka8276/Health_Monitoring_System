@@ -7,8 +7,8 @@ function  PatientPastReports() {
         <div className="row mt-5">
             <div className="col-12 col-lg-10">
             <h4 className="mb-3">Your Reports </h4>
-            <ReportsList/>
-            <ReportsList/>
+            <ReportsList name="22-07-2022 12:00 PM"/>
+            <ReportsList name="20-07-2022 6:00 PM"/>
         </div>
         </div>  
     </div>);

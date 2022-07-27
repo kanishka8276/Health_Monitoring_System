@@ -15,15 +15,15 @@ function PatientReport() {
             <div className="shadow-sm p-3 round-boarder gb-white">
                 <div className='report-span'>
                 <div>
-                    <p className="report">Date: 22/5/2022 </p>
-                    <p className="report">Name: Kailash Pandey </p>
-                    <p className="report">Age:46 </p>
-                    <p className="report">Gender : Male </p>
-                    <p className="report">Height : 168 cm </p>
-                    <p className="report">Weight : 78 kg </p>
-                    <p className="report">Blood Groop : O+ </p>
-                    <p className="report">BMI :25.6 </p>
-                    <p className="report">BMI class : Obesity </p>
+                    <p className="report">Date: 22/07/2022 </p>
+                    <p className="report">Name: Kanishka </p>
+                    <p className="report">Age:21 </p>
+                    <p className="report">Gender : Female </p>
+                    <p className="report">Height : 173 cm </p>
+                    <p className="report">Weight : 55 kg </p>
+                    <p className="report">Blood Groop : B+ </p>
+                    <p className="report">BMI :18.4 </p>
+                    <p className="report">BMI class : Underweight </p>
                 </div>
                 <div className='report-details'>
                     <p className="report">Systolic Blood Pressure : 147 mm</p>

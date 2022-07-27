@@ -28,7 +28,7 @@ function App() {
             <Route path="/dashboardPatient" element={<PatientDashboard />} />
             <Route path="/dashboardFamMem" element={<FamMemDashboard />} />
             <Route path="/dashboardDoctor/*" element={<DoctorDashboard />} />
-            <Route path="/device/*" element={<DeviceContainer />} />
+            <Route path="/generateReport" element={<DeviceContainer />} />
             <Route path="/pastReports" element={<PatientPastReports />} />
             <Route path="/report" element={<PatientReport />} />
             <Route path="/recommendations" element={<Caretaker />} />
