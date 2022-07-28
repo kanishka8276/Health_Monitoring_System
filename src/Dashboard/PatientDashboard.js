@@ -39,6 +39,8 @@ function PatientDashboard() {
                 <Caretaker />
             </div>    
             </div>
+            Your unique id is <span className='purple' >{currentUser.uid} </span>
+            Share this with your doctor.
             </div>
             </div>
         </>
