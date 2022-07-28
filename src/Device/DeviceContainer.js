@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import { useAuth } from "../Context/AuthContext";
 import axios from 'axios';
 
@@ -12,6 +13,7 @@ function Disease1() {
     const [drink, setDrink] = useState('');
     const [exercise, setExercise] = useState('');
     const {profile,currentUser} = useAuth();
+    const navigate = useNavigate();
     const generateReport = async (e) => {
       e.preventDefault();
         try {
@@ -33,6 +35,7 @@ function Disease1() {
             "blood":profile.blood,
           });
           console.log(resp);
+          navigate(`/report/${resp.data.report_id}`);
         } catch (err) {
           console.log(err);
         }
