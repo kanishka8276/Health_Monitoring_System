@@ -4,11 +4,32 @@ import './Dashboard.css';
 import { Modal } from 'react-bootstrap';
 import add from '../Asset/add.png'
 import { useAuth } from "../Context/AuthContext";
+import { doc, getDoc} from "firebase/firestore";
+import { db } from "../firebase"
 
-function PatientReport() { 
+function PatientReport({ match }) { 
     const [show, setShow] = useState(false);
     const [comment, setComment] = useState('None');
+    const [report,setReport] = useState({});
     const {profile} = useAuth();
+    const { id } = match.params;
+    async function getReport(e) {
+        const docRef = doc(db, "reports", id);
+      try {
+        const docSnap =await getDoc(docRef);
+        if(docSnap.exists()) {
+            setReport(docSnap.data());
+            console.log(report);
+        } else {
+            console.log("Document does not exist")
+        }
+      
+    } catch(error) {
+        console.log(error)
+    }}
+    useEffect(() => {
+        getReport();
+      },[]);
     return (
         <div className="row">
         <div className="col-md-3" />
