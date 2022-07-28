@@ -19,7 +19,7 @@ function Disease1() {
             "active":parseInt(exercise),
             "age":parseInt(profile.age),
             "alcohol":parseInt(drink),
-            "cholestrol_val":parseInt(cholestrol),
+            "cholesterol_val":parseInt(cholestrol),
             "distolic_bp":parseInt(bp2),
             "gender":profile.gender,
             "glucose_condition":glucose_type,
@@ -89,7 +89,7 @@ function Disease1() {
                       <input
                         required
                         type="radio"
-                        name="type-1"
+                        name="type-10"
                         value="fasting"
                         onClick={(e) => { setGlucose_type(e.target.value); }}
                       />
@@ -99,7 +99,7 @@ function Disease1() {
                     <div className="col-3">
                       <input
                         type="radio"
-                        name="type-1"
+                        name="type-10"
                         value="random"
                         onClick={(e) => { setGlucose_type(e.target.value); }}
                       />
@@ -110,7 +110,7 @@ function Disease1() {
                       <input
                         required
                         type="radio"
-                        name="type-1"
+                        name="type-10"
                         value="post_meal"
                         onClick={(e) => { setGlucose_type(e.target.value); }}
                       />
