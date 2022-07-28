@@ -34,6 +34,10 @@ function FamMemDashboard() {
             { Object.entries(patients).map(([key, value]) =>  
             <PatientListItem name={value.name} age={value.age} gender={value.gender}/>) }
         </div>
+        <div className="uid">
+            Your unique id is <span className='purple' >{currentUser.uid} </span><br/>
+            Share this with your doctor.
+            </div>
         </div>  
     </div>
     </>);

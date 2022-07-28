@@ -85,3 +85,9 @@
     font-size: 15px;
     color: #000000;
 }
+.uid {
+    display: inline-block;
+    margin: 10% 35%;
+    font-size: medium;
+    font-weight: bolder;
+}
