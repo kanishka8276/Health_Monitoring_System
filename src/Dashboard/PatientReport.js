@@ -63,7 +63,7 @@ function PatientReport({ match }) {
             <div className="shadow-sm p-3 round-boarder gb-white">
                 <div className='report-span'>
                 <div>
-                    <p className="report">Date: {report.date} </p>
+                    <p className="report">Date:  </p>
                     <p className="report">Name: {report.name} </p>
                     <p className="report">Age:{report.age} </p>
                     <p className="report">Gender : {report.gender} </p>
