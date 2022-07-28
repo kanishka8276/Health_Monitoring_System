@@ -11,16 +11,7 @@ function PatientListItem({name,contact}) {
         <div className="row" style={{marginTop:"-2%"}}> 
           <div className="col-5 details">
            Contact: {contact}
-          </div>
-          <div className="col-7">
-                <button
-                  type="button"
-                  className="btn purple-btn float-end"
-                  style={{marginTop:"-2%"}}
-                >
-                  Delete
-                </button>
-            </div>
+          </div>          
           </div>
     </div>);
 }
