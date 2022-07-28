@@ -10,11 +10,36 @@ import { db } from "../firebase"
 function PatientReport({ match }) { 
     const [show, setShow] = useState(false);
     const [comment, setComment] = useState('None');
-    const [report,setReport] = useState({});
+    const [report,setReport] = useState({
+        "active": 1,
+  "age": 47,
+  "alcohol": 0,
+  "bmi_class": "over weight",
+  "bp_class": "Hypertension stage 2",
+  "cholesterol_class": "normal",
+  "cholesterol_val": 180,
+  "date": "Thu, 28 Jul 2022 22:23:54 GMT",
+  "distolic_bp": 90,
+  "gender": "female",
+  "glucose_class": "well above normal",
+  "glucose_condition": "fasting",
+  "glucose_val": 120,
+  "height": 169,
+  "prediction": "1",
+  "report_id": "Fhy79XdRvYZRawp9RpPl8YY8Bpy12022-07-28 22:23:54.839712",
+  "smoke": 1,
+  "systolic_bp": 110,
+  "user_id": "Fhy79XdRvYZRawp9RpPl8YY8Bpy1",
+  "weight": 73,
+  "blood":'B+',
+  "name":"K",
+  "bmi":20
+    });
     const {profile} = useAuth();
     const { id } = useParams();
-    async function getReport(e) {
+    async function getReport() {
         const docRef = doc(db, "reports", id);
+        console.log()
       try {
         const docSnap =await getDoc(docRef);
         if(docSnap.exists()) {
