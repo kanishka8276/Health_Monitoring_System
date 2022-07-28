@@ -14,6 +14,24 @@ function DoctorDashboard() {
     async function addInBackend(data) {
       console.log(currentUser);
       const docRef = doc(db, "myPatients",currentUser.uid);
+      const docRef1 = doc(db, "myDoctors", email);
+      const docRef2 = doc(db, "profile", currentUser.uid);
+      try {
+        const docSnap1 = await getDoc(docRef2);
+        if(docSnap1.exists()) {
+            await updateDoc(docRef1, {[currentUser.uid]:docSnap1.data()})
+      .then(docRef1 => {
+          console.log("A New Document Field has been added to an existing document");
+      })
+      .catch(error => {
+          console.log(error);
+      })
+        } else {
+            console.log("Document does not exist")
+        }
+    } catch(error) {
+        console.log(error)
+    }
       const Data={
       [email]:data
       };
