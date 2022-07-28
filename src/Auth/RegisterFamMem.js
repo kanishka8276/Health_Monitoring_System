@@ -26,7 +26,7 @@ function RegisterFamMem() {
             const data= {
                 name:name,
                 phone:phone,
-                type:"Family Member",
+                type:"FamMem",
             };
             await setDoc(docRef,data);
             console.log("added");

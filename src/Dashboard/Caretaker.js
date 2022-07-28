@@ -12,6 +12,7 @@ function Caretaker() {
     const [email, setEmail] = useState('');
     const { currentUser} = useAuth();
     const [caretakers,setCareTakers] = useState({});
+    console.log(caretakers);
     async function addInBackend(data) {
       console.log(currentUser);
       const docRef = doc(db, "careTaker",currentUser.uid);
