@@ -18,7 +18,7 @@ function PatientDashboard() {
                 <Caretaker />
             </div>    
             </div>
-            </div>  
+            </div>
             </div>
         </>
     );
