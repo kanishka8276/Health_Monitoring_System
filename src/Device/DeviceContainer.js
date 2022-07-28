@@ -10,23 +10,23 @@ function Disease1() {
     const [smoke, setSmoke] = useState('');
     const [drink, setDrink] = useState('');
     const [exercise, setExercise] = useState('');
-
+    const {profile,currentUser} = useAuth();
     const generateReport = async () => {
         try {
           const resp = await axios.post('https://real-time-hms.herokuapp.com/api/predict', {
             "active":exercise,
-            "age":"int",
+            "age":profile.age,
             "alcohol":drink,
             "cholestrol_val":cholestrol,
             "distolic_bp":bp2,
-            "gender":"male/female",
+            "gender":profile.gender,
             "glucose_condition":"str: fasting/random/post_meal",
             "glucose_val":"int",
-            "height":"int",
+            "height":profile.height,
             "smoke":smoke,
             "systolic_bp":bp1,
-            "user_id":"id",
-            "weight":"int"
+            "user_id":currentUser,
+            "weight":profile.weight
           });
           console.log(resp);
         } catch (err) {

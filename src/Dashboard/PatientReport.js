@@ -3,10 +3,12 @@ import { Link} from 'react-router-dom';
 import './Dashboard.css';
 import { Modal } from 'react-bootstrap';
 import add from '../Asset/add.png'
+import { useAuth } from "../Context/AuthContext";
 
 function PatientReport() { 
     const [show, setShow] = useState(false);
     const [comment, setComment] = useState('None');
+    const {profile} = useAuth();
     return (
         <div className="row">
         <div className="col-md-3" />
@@ -40,11 +42,12 @@ function PatientReport() {
                 
             </div>
             <p className="report">Comments : {comment} </p>
+            {profile.type === "Doctor" && (
             <button className="btn purple-outline-btn" onClick={() => setShow(true)}>
             <img src={add} alt="Add Comment" className="img" />
             {' '}
             Add Comment
-            </button>
+            </button>)}
             <Modal
           show={show}
           onHide={() => setShow(false)}

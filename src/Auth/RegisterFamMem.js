@@ -10,10 +10,17 @@ function RegisterFamMem() {
     const {currentUser,setProfile} = useAuth();
     // const dbRef = collection(db, "profile");
     const navigate = useNavigate();
-    const docRef = doc(db, "profile", currentUser.uid)
+    const docRef = doc(db, "profile", currentUser.uid);
+    const docRef1 = doc(db, "myFamMem", currentUser.uid);
     const submitHandler = async (e) => {
         e.preventDefault();
         console.log(docRef);
+        try {
+            await setDoc(docRef1,{});
+            console.log("care");
+          } catch (err) {
+            alert(err)
+          }
         try {
             console.log("added");
             const data= {

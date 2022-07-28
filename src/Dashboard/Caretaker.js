@@ -15,6 +15,24 @@ function Caretaker() {
     async function addInBackend(data) {
       console.log(currentUser);
       const docRef = doc(db, "careTaker",currentUser.uid);
+      const docRef1 = doc(db, "myFamMem", email);
+      try {
+        const docRef = doc(db, "profile", email);
+        const docSnap = await getDoc(docRef);
+        if(docSnap.exists()) {
+            await updateDoc(docRef1, {[currentUser.uid]:docSnap.data()})
+      .then(docRef1 => {
+          console.log("A New Document Field has been added to an existing document");
+      })
+      .catch(error => {
+          console.log(error);
+      })
+        } else {
+            console.log("Document does not exist")
+        }
+    } catch(error) {
+        console.log(error)
+    }
       const Data={
       [email]:data
       };

@@ -18,12 +18,18 @@ function RegisterPatient() {
     // const dbRef = collection(db, "profile");
     const docRef = doc(db, "profile", currentUser.uid);
     const docRef1 = doc(db, "careTaker", currentUser.uid);
+    const docRef2 = doc(db, "myDoctors", currentUser.uid);
     const submitHandler = async (e) => {
         e.preventDefault();
         console.log(docRef);
         try {
             await setDoc(docRef1,{});
             console.log("care");
+          } catch (err) {
+            alert(err)
+          }
+          try {
+            await setDoc(docRef2,{});
           } catch (err) {
             alert(err)
           }
