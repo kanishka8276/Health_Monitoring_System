@@ -31,8 +31,8 @@ console.log(q);
         <div className="row mt-5">
             <div className="col-12 col-lg-10">
             <h4 className="mb-3">Your Reports </h4>
-            {pastReport.forEach((doc) => {
-              <ReportsList name={doc.data().date} id={doc.id}/>
+            {pastReport && pastReport.forEach((doc) => {
+              <ReportsList name={_.get(doc.data(),'date',Date())} id={doc.id}/>
               }) }
         </div>
         </div>  
