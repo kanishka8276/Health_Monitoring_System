@@ -17,11 +17,11 @@ function Caretaker() {
       console.log(currentUser);
       const docRef = doc(db, "careTaker",currentUser.uid);
       const docRef1 = doc(db, "myFamMem", email);
+      const docRef2 = doc(db, "profile", currentUser.uid);
       try {
-        const docRef = doc(db, "profile", email);
-        const docSnap = await getDoc(docRef);
-        if(docSnap.exists()) {
-            await updateDoc(docRef1, {[currentUser.uid]:docSnap.data()})
+        const docSnap1 = await getDoc(docRef2);
+        if(docSnap1.exists()) {
+            await updateDoc(docRef1, {[currentUser.uid]:docSnap1.data()})
       .then(docRef1 => {
           console.log("A New Document Field has been added to an existing document");
       })

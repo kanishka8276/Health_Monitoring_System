@@ -10,11 +10,12 @@ function FamMemDashboard() {
     const [patients,setPatients] = useState({});
     console.log(currentUser.uid);
     async function getPatient() {
-        const docRef = doc(db, "myfamMem", currentUser.uid);
+        const docRef = doc(db, "myFamMem", currentUser.uid);
       try {
         const docSnap =await getDoc(docRef);
         if(docSnap.exists()) {
             setPatients(docSnap.data());
+            console.log(patients);
         } else {
             console.log("Document does not exist")
         }
