@@ -5,7 +5,8 @@ import { Modal } from 'react-bootstrap';
 import add from '../Asset/add.png'
 import { useAuth } from "../Context/AuthContext";
 import { doc, getDoc} from "firebase/firestore";
-import { db } from "../firebase"
+import { db } from "../firebase";
+import dateFormat from 'dateformat';
 
 function PatientReport({ match }) { 
     const [show, setShow] = useState(false);
@@ -57,13 +58,13 @@ function PatientReport({ match }) {
       },[]);
     return (
         <div className="row">
-        <div className="col-md-3" />
-            <div className="text-center col-md-6">
-            <h2 style={{ color: '#535461' }}>Health report</h2>
+        <div className="col-md-2" />
+            <div className="col-md-8">
+            <h2 style={{ color: '#535461' }} className="text-center">Health report</h2>
             <div className="shadow-sm p-3 round-boarder gb-white">
                 <div className='report-span'>
                 <div>
-                    <p className="report">Date: {report.date} </p>
+                    <p className="report">Date:{ dateFormat(Date(report.date), 'mmmm dd, yyyy hh:MM tt') }</p>
                     <p className="report">Name: {report.name} </p>
                     <p className="report">Age:{report.age} </p>
                     <p className="report">Gender : {report.gender} </p>
@@ -87,7 +88,7 @@ function PatientReport({ match }) {
                 </div>
                 
             </div>
-            <p className="report">Comments : {comment} </p>
+            <p className="report text-center">Comments : {comment} </p>
             {profile.type === "Doctor" && (
             <button className="btn purple-outline-btn" onClick={() => setShow(true)}>
             <img src={add} alt="Add Comment" className="img" />
