@@ -14,9 +14,15 @@ function RegisterDoctor() {
     const navigate = useNavigate();
     console.log(currentUser);
     const docRef = doc(db, "profile", currentUser.uid);
-    
+    const docRef1 = doc(db, "myPatients", currentUser.uid);
     const submitHandler = async (e) => {
         e.preventDefault();
+        try {
+            await setDoc(docRef1,{});
+            console.log("care");
+          } catch (err) {
+            alert(err)
+          }
         console.log(docRef);
         try {
             console.log("added");
