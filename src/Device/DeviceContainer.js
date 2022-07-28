@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Link} from 'react-router-dom';
 import { useAuth } from "../Context/AuthContext";
 import axios from 'axios';
 
@@ -7,6 +6,8 @@ function Disease1() {
     const [bp1, setBp1] = useState('');
     const [bp2, setBp2] = useState('');
     const [cholestrol, setCholestrol] = useState('');
+    const [glucose, setGlucose] = useState('');
+    const [glucose_type, setGlucose_type] = useState('');
     const [smoke, setSmoke] = useState('');
     const [drink, setDrink] = useState('');
     const [exercise, setExercise] = useState('');
@@ -20,8 +21,8 @@ function Disease1() {
             "cholestrol_val":cholestrol,
             "distolic_bp":bp2,
             "gender":profile.gender,
-            "glucose_condition":"str: fasting/random/post_meal",
-            "glucose_val":"int",
+            "glucose_condition":glucose_type,
+            "glucose_val":glucose,
             "height":profile.height,
             "smoke":smoke,
             "systolic_bp":bp1,
@@ -46,7 +47,7 @@ function Disease1() {
                     <div className="input-group flex-nowrap mb-1">
                         <input 
                             className="form-control" 
-                            type="text"   
+                            type="number"   
                             required
                             value={bp1}
                             onChange={(e) => {
@@ -58,7 +59,7 @@ function Disease1() {
                     <label htmlFor="exampleFormControlInput1" className="form-label">Diastolic Blood Pressure in mm Hg </label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         className="form-control"  
                         required
                         value={bp2}
@@ -77,6 +78,56 @@ function Disease1() {
                         value={cholestrol}
                         onChange={(e) => {
                         setCholestrol(e.target.value);
+                        }} />
+                    </div>
+                </div>
+                <div className="glucose_type">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Glucose level</label><br />
+                    <div className="row" style={{marginTop:"-30px"}}>
+                    <div className="col-3">
+                      <input
+                        required
+                        type="radio"
+                        name="type-1"
+                        value="fasting"
+                        onClick={(e) => { setGlucose_type(e.target.value); }}
+                      />
+                      {' '} 
+                      <label htmlFor="radio" className="form-label__v2">Fasting</label>
+                    </div>
+                    <div className="col-3">
+                      <input
+                        type="radio"
+                        name="type-1"
+                        value="random"
+                        onClick={(e) => { setGlucose_type(e.target.value); }}
+                      />
+                      {' '}
+                      <label htmlFor="radio" className="form-label__v2">Random</label>
+                    </div>
+                    <div className="col-3">
+                      <input
+                        required
+                        type="radio"
+                        name="type-1"
+                        value="post_meal"
+                        onClick={(e) => { setGlucose_type(e.target.value); }}
+                      />
+                      {' '}
+                      <label htmlFor="radio" className="form-label__v2">Post Meal</label>
+                    </div>
+                    </div>        
+                </div>
+                <div className="glucose">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Glucose value</label><br />
+                    <div className="input-group flex-nowrap mb-1">
+                    <input  
+                        type="number" 
+                        className="form-control"  
+                        required
+                        value={glucose}
+                        onChange={(e) => {
+                        setGlucose(e.target.value);
                         }} />
                     </div>
                 </div>

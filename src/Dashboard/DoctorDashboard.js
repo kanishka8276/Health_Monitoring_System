@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
 import { Modal } from 'react-bootstrap';
 import PatientListItem from './PatientListItem';
 import add from '../Asset/add.png';
