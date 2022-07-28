@@ -12,7 +12,8 @@ function Disease1() {
     const [drink, setDrink] = useState('');
     const [exercise, setExercise] = useState('');
     const {profile,currentUser} = useAuth();
-    const generateReport = async () => {
+    const generateReport = async (e) => {
+      e.preventDefault();
         try {
           const resp = await axios.post('https://real-time-hms.herokuapp.com/api/predict', {
             "active":exercise,
