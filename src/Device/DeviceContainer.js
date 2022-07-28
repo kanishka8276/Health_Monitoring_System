@@ -16,19 +16,19 @@ function Disease1() {
       e.preventDefault();
         try {
           const resp = await axios.post('https://real-time-hms.herokuapp.com/api/predict', {
-            "active":exercise,
-            "age":profile.age,
-            "alcohol":drink,
-            "cholestrol_val":cholestrol,
-            "distolic_bp":bp2,
+            "active":parseInt(exercise),
+            "age":parseInt(profile.age),
+            "alcohol":parseInt(drink),
+            "cholestrol_val":parseInt(cholestrol),
+            "distolic_bp":parseInt(bp2),
             "gender":profile.gender,
             "glucose_condition":glucose_type,
-            "glucose_val":glucose,
-            "height":profile.height,
-            "smoke":smoke,
-            "systolic_bp":bp1,
-            "user_id":currentUser,
-            "weight":profile.weight
+            "glucose_val":parseInt(glucose),
+            "height":parseInt(profile.height),
+            "smoke":parseInt(smoke),
+            "systolic_bp":parseInt(bp1),
+            "user_id":currentUser.uid,
+            "weight":parseInt(profile.weight)
           });
           console.log(resp);
         } catch (err) {
