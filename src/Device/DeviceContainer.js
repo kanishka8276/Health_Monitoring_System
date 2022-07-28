@@ -27,7 +27,7 @@ function Disease1() {
             "height":profile.height,
             "smoke":smoke,
             "systolic_bp":bp1,
-            "user_id":currentUser,
+            "user_id":currentUser.uid,
             "weight":profile.weight
           });
           console.log(resp);
