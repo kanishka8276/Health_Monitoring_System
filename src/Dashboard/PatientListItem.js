@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import './Dashboard.css';
 
-function PatientListItem() { 
+function PatientListItem({name,age,gender}) { 
     return (
     <div className="rowCard">
           <div className="rowHeading col-12">
-            Patient name
+           {name}
           </div>
         <div className="row" style={{marginTop:"-2%"}}> 
           <div className="col-3 details">
-           Age: 20 years
+           Age: {age}
           </div>
           <div className="col-3 details">
-           Gender: Male
+           Gender:{gender}
           </div>
           <div className="col-6">
                 <button

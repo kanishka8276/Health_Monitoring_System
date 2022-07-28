@@ -16,8 +16,8 @@ function DoctorDashboard() {
             {' '}
             Add Patient
         </button></h4>
-        <PatientListItem/>
-        <PatientListItem/>
+        <PatientListItem name="Kanishka" age="21" gender="Female"/>
+        <PatientListItem  name="Piyush" age="22" gender="Male"/>
         <Modal
           show={show}
           onHide={() => setShow(false)}
