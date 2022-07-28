@@ -69,10 +69,10 @@ function Disease1() {
                     </div>
                 </div> 
                 <div className="cholestrol">
-                    <label htmlFor="exampleFormControlInput1" className="form-label">Cholesterol Level (Normal/ Above Normal/ Very High )</label><br />
+                    <label htmlFor="exampleFormControlInput1" className="form-label">Cholesterol Value</label><br />
                     <div className="input-group flex-nowrap mb-1">
                     <input  
-                        type="text" 
+                        type="number" 
                         className="form-control"  
                         required
                         value={cholestrol}
