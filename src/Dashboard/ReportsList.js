@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import './Dashboard.css';
+import dateFormat from 'dateformat';
 
-function ReportsList({name}) { 
+function ReportsList({name,id}) { 
     return (
     <div className="rowCard1">
           <div className="rowHeading col-12">
-            {name}
+          { dateFormat(Date(name), 'mmmm dd, yyyy hh:MM tt') }
             <div className="col-11">
-                <Link to="/report">
+                <Link to={`/report${id}`}>
                     <button
                     type="button"
                     className="btn purple-btn float-end"
