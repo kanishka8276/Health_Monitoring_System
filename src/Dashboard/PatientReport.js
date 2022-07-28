@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link} from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
 import './Dashboard.css';
 import { Modal } from 'react-bootstrap';
 import add from '../Asset/add.png'
@@ -12,7 +12,7 @@ function PatientReport({ match }) {
     const [comment, setComment] = useState('None');
     const [report,setReport] = useState({});
     const {profile} = useAuth();
-    const { id } = match.params;
+    const { id } = useParams();
     async function getReport(e) {
         const docRef = doc(db, "reports", id);
       try {
