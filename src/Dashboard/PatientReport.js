@@ -38,26 +38,26 @@ function PatientReport({ match }) {
             <div className="shadow-sm p-3 round-boarder gb-white">
                 <div className='report-span'>
                 <div>
-                    <p className="report">Date: 22/07/2022 </p>
-                    <p className="report">Name: Kanishka </p>
-                    <p className="report">Age:21 </p>
-                    <p className="report">Gender : Female </p>
-                    <p className="report">Height : 173 cm </p>
-                    <p className="report">Weight : 55 kg </p>
-                    <p className="report">Blood Groop : B+ </p>
-                    <p className="report">BMI :18.4 </p>
-                    <p className="report">BMI class : Underweight </p>
+                    <p className="report">Date: {report.date} </p>
+                    <p className="report">Name: {report.name} </p>
+                    <p className="report">Age:{report.age} </p>
+                    <p className="report">Gender : {report.gender} </p>
+                    <p className="report">Height : {report.height} cm </p>
+                    <p className="report">Weight : {report.weight} kg </p>
+                    <p className="report">Blood Groop : {report.blood} </p>
+                    <p className="report">BMI :{report.bmi} </p>
+                    <p className="report">BMI class : {report.bmi_class} </p>
                 </div>
                 <div className='report-details'>
-                    <p className="report">Systolic Blood Pressure : 147 mm</p>
-                    <p className="report">Diastolic Blood Pressure : 90 mm</p>
-                    <p className="report">BP class : High </p>
-                    <p className="report">Cholestrol : 207 mg/dl </p>
-                    <p className="report">Cholestrol Class : Above Normal</p>
-                    <p className="report">Regular Exercise :Yes </p>
-                    <p className="report">Smoking : No </p>
-                    <p className="report">Drinking : Yes </p>
-                    <p className="report">Cardiovascular Disease : Yes </p>
+                    <p className="report">Systolic Blood Pressure : {report.systolic_bp} mm</p>
+                    <p className="report">Diastolic Blood Pressure : {report.distolic_bp} mm</p>
+                    <p className="report">BP class : {report.bp_class} </p>
+                    <p className="report">Cholestrol : {report.cholesterol_val} mg/dl </p>
+                    <p className="report">Cholestrol Class : {report.cholesterol_class}</p>
+                    <p className="report">Regular Exercise :{report.active? 'Yes' :'No'} </p>
+                    <p className="report">Smoking : {report.smoke? 'Yes' :'No'} </p>
+                    <p className="report">Drinking :  {report.alcohol ? 'Yes' :'No'} </p>
+                    <p className="report">Cardiovascular Disease : {report.prediction ? 'Yes' :'No'} </p>
                 </div>
                 </div>
                 

@@ -28,7 +28,9 @@ function Disease1() {
             "smoke":parseInt(smoke),
             "systolic_bp":parseInt(bp1),
             "user_id":currentUser.uid,
-            "weight":parseInt(profile.weight)
+            "weight":parseInt(profile.weight),
+            "name":profile.name,
+            "blood":profile.blood,
           });
           console.log(resp);
         } catch (err) {
