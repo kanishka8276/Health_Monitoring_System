@@ -36,7 +36,7 @@ function FamMemDashboard() {
         </div>
         <div className="uid">
             Your unique id is <span className='purple' >{currentUser.uid} </span><br/>
-            Share this with your doctor.
+            Share this with your family Members.
             </div>
         </div>  
     </div>
