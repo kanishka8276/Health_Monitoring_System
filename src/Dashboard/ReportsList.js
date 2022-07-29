@@ -9,7 +9,7 @@ function ReportsList({name,id}) {
           <div className="rowHeading col-12">
           { dateFormat(Date(name), 'mmmm dd, yyyy hh:MM tt') }
             <div className="col-11">
-                <Link to={`/report${id}`}>
+                <Link to={`/report/${id}`}>
                     <button
                     type="button"
                     className="btn purple-btn float-end"
