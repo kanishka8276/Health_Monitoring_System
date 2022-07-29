@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from "react-router-dom";
 import './Dashboard.css';
+import _ from 'lodash';
 import { Modal } from 'react-bootstrap';
 import add from '../Asset/add.png'
 import { useAuth } from "../Context/AuthContext";
@@ -10,7 +11,7 @@ import dateFormat from 'dateformat';
 
 function PatientReport({ match }) { 
     const [show, setShow] = useState(false);
-    const [comment, setComment] = useState('None');
+    const [comment, setComment] = useState();
     const [report,setReport] = useState({
         "active": 1,
   "age": 47,
@@ -56,6 +57,7 @@ function PatientReport({ match }) {
     useEffect(() => {
         getReport();
       },[]);
+      console.log(typeof(report.date));
     return (
         <div className="row">
         <div className="col-md-2" />
@@ -88,13 +90,16 @@ function PatientReport({ match }) {
                 </div>
                 
             </div>
-            <p className="report text-center">Comments : {comment} </p>
+            <p className="report text-center">Comments : {comment ? comment: 'None' } 
+            <p>
             {profile.type === "Doctor" && (
             <button className="btn purple-outline-btn" onClick={() => setShow(true)}>
             <img src={add} alt="Add Comment" className="img" />
             {' '}
             Add Comment
             </button>)}
+            </p></p>
+           
             <Modal
           show={show}
           onHide={() => setShow(false)}

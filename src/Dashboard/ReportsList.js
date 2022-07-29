@@ -7,7 +7,7 @@ function ReportsList({name,id}) {
     return (
     <div className="rowCard1">
           <div className="rowHeading col-12">
-          { dateFormat(Date(name), 'mmmm dd, yyyy hh:MM tt') }
+          { name }
             <div className="col-11">
                 <Link to={`/report/${id}`}>
                     <button
