@@ -29,7 +29,7 @@ function App() {
             <Route path="/dashboardFamMem" element={<FamMemDashboard />} />
             <Route path="/dashboardDoctor/*" element={<DoctorDashboard />} />
             <Route path="/generateReport" element={<DeviceContainer />} />
-            <Route path="/pastReports" element={<PatientPastReports />} />
+            <Route path="/pastReports/:id" element={<PatientPastReports />} />
             <Route path="/report/:id" element={<PatientReport />} />
             <Route path="/recommendations" element={<Caretaker />} />
             <Route path="/" element={<Login/>} />

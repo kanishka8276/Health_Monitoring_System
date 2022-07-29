@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link} from 'react-router-dom';
 import './Dashboard.css';
 
-function PatientListItem({name,age,gender}) { 
+function PatientListItem({name,age,gender,id}) { 
     return (
     <div className="rowCard">
           <div className="rowHeading col-12">
@@ -16,6 +16,9 @@ function PatientListItem({name,age,gender}) {
            Gender:{gender}
           </div>
           <div className="col-6">
+            
+          <Link to={`/pastReports/${id}`}  >
+           
                 <button
                   type="button"
                   className="btn purple-btn float-end"
@@ -23,6 +26,7 @@ function PatientListItem({name,age,gender}) {
                 >
                   View Reports
                 </button>
+                </Link>
             </div>
           </div>
     </div>);

@@ -4,12 +4,14 @@ import { collection, query, where ,getDocs} from "firebase/firestore";
 import { db } from "../firebase"
 import { useAuth } from "../Context/AuthContext";
 import _ from 'lodash';
+import { useParams } from "react-router-dom";
 
 function  PatientPastReports() { 
     const { currentUser} = useAuth();
+    const { id } = useParams();
     const [pastReport,setPast] = useState()
     const Ref = collection(db, "reports");
-    const q = query(Ref, where("user_id", "==", currentUser.uid));
+    const q = query(Ref, where("user_id", "==", id));
   async function getPastReport() {
   try {
     const pr= await getDocs(q);

@@ -10,7 +10,7 @@ import './Navbar.css';
 
 function NavbarContainer() { 
   const location = useLocation();
-  const {setCurrentUser,profile} = useAuth();
+  const {setCurrentUser,profile,currentUser} = useAuth();
   const navigate = useNavigate();
     return (
       <>
@@ -24,7 +24,7 @@ function NavbarContainer() {
             {profile.type === "Patient" && 
             (<Nav className="me-auto">
             <Link to="/generateReport" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none m-2"><strong>Generate Report </strong></Link>
-            <Link to="/pastReports" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none  m-2"><strong>Past Reports</strong></Link>
+            <Link to={`/pastReports/${currentUser.uid}`} style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none  m-2"><strong>Past Reports</strong></Link>
             <Link to="/recommendation" style={{color:'#fff',fontSize:'18px'}}  className="text-decoration-none m-2"><strong>Recommendations</strong></Link>
           </Nav>)}
         </Navbar.Collapse>

@@ -87,7 +87,7 @@ useEffect(() => {
             Add Patient
         </button></h4>
         
-        { Object.entries(patients).map(([key, value]) =>  <PatientListItem name={value.name} age={value.age} gender={value.gender}/>) }
+        { Object.entries(patients).map(([key, value]) =>  <PatientListItem name={value.name} age={value.age} gender={value.gender} id={key}/>) }
         <Modal
           show={show}
           onHide={() => setShow(false)}

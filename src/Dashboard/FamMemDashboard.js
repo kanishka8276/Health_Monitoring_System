@@ -32,7 +32,7 @@ function FamMemDashboard() {
             <div className="col-12 col-lg-10">
             <h5>Your Family Members</h5>
             { Object.entries(patients).map(([key, value]) =>  
-            <PatientListItem name={value.name} age={value.age} gender={value.gender}/>) }
+            <PatientListItem name={value.name} age={value.age} gender={value.gender} id={key}/>) }
         </div>
         <div className="uid">
             Your unique id is <span className='purple' >{currentUser.uid} </span><br/>
